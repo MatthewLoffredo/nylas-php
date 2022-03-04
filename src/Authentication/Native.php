@@ -55,7 +55,8 @@ class Native
             V::key('provider', V::in(API::PROVIDERS)),
             V::key('settings', $this->settingsRules($params)),
             V::key('client_id', V::stringType()->notEmpty()),
-            V::key('email_address', V::email()),
+            V::keyOptional('email_address', V::email()),
+            V::keyOptional('email', V::email()),
             V::keyOptional('scopes', V::stringType()->notEmpty()),
 
             // re-authenticate existing account id
@@ -156,7 +157,10 @@ class Native
      */
     private function nylasProviderRule(): V
     {
-        return V::equals([]);
+        return V::oneOf(
+            V::equals([]),
+            V::equals((object) []),
+        );
     }
 
     // ------------------------------------------------------------------------------
