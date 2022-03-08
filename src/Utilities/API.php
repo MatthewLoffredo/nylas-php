@@ -28,6 +28,8 @@ class API
         'us'      => 'https://api.nylas.com',
         'canada'  => 'https://canada.api.nylas.com',
         'ireland' => 'https://ireland.api.nylas.com',
+        'scheduler' => 'https://api.schedule.nylas.com',
+        'scheduler-ireland' => 'https://ireland.api.schedule.nylas.com',
     ];
 
     // ------------------------------------------------------------------------------
@@ -194,6 +196,10 @@ class API
 
         // Rooms
         'resource' => '/resources',
+
+        // Scheduler
+        'schedulingPages' => '/manage/pages',
+        'oneSchedulingPage' => '/manage/pages/%s',
 
         // Contacts
         'contacts'       => '/contacts',
