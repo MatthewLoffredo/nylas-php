@@ -46,7 +46,7 @@ class Validation
     return V::keySet(
       V::key('appearance', self::getAppearanceRules()),
       V::key('booking', V::alwaysValid()), // not done
-      V::key('calendar_ids', V::alwaysValid()), // not done
+      V::keyOptional('calendar_ids', V::alwaysValid()), // not done
       V::key('event', V::alwaysValid()), // not done
       V::keyOptional('expire_after', V::alwaysValid()), // not done
       V::keyOptional('disable_emails', V::boolType()),
@@ -73,6 +73,7 @@ class Validation
       V::keyOptional('privacy_policy_redirect', V::stringType()->notEmpty()),
       V::keyOptional('show_autoschedule', V::boolType()),
       V::key('show_nylas_branding', V::boolType()),
+      V::keyOptional('show_timezone_options', V::boolType()),
       V::keyOptional('show_week_view', V::boolType()),
       V::keyOptional('submit_text', V::stringType()->notEmpty()),
       V::keyOptional('thank_you_redirect', V::stringType()->notEmpty()),

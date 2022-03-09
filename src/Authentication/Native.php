@@ -56,7 +56,7 @@ class Native
             V::key('settings', $this->settingsRules($params)),
             V::key('client_id', V::stringType()->notEmpty()),
             V::keyOptional('email_address', V::email()),
-            V::keyOptional('email', V::email()),
+            V::keyOptional('email', V::stringType()->notEmpty()), // for Virtual calendars
             V::keyOptional('scopes', V::stringType()->notEmpty()),
 
             // re-authenticate existing account id
