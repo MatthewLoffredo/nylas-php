@@ -54,6 +54,7 @@ class Account
         return $this->options
             ->getSync()
             ->setPath($this->options->getClientId(), $accountId)
+            ->setFormParams(['metadata' => $metadata])
             ->setHeaderParams($this->options->getAuthorizationHeader(false))
             ->put(API::LIST['listAnAccount']);
     }
