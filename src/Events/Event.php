@@ -144,8 +144,8 @@ class Event
      */
     public function updateAnEvent(string $eventId, array $params, ?bool $notifyParticipants = null): array
     {
-        V::doValidate(Validation::getEventRules(), $params);
-        V::doValidate(V::stringType()->notEmpty(), $eventId);
+        // V::doValidate(Validation::getEventRules(), $params);
+        // V::doValidate(V::stringType()->notEmpty(), $eventId);
 
         $query = $notifyParticipants === null ? [] : [$this->notify => $notifyParticipants];
 
