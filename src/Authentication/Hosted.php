@@ -56,7 +56,8 @@ class Hosted
             V::key('redirect_uri', V::url()),
             V::key('response_type', V::in(['code', 'token'])),
             V::keyOptional('state', V::stringType()->length(1, 255)),
-            V::keyOptional('login_hint', V::email())
+            V::keyOptional('login_hint', V::email()),
+            V::keyOptional('provider', V::in(API::PROVIDERS))
         ), $params);
 
         $query  = \http_build_query($params, '', '&', PHP_QUERY_RFC3986);
