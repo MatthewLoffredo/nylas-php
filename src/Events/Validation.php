@@ -29,7 +29,7 @@ class Validation
         return V::anyOf(
             V::keySet(
                 V::key('event_id', V::stringType()->notEmpty()),
-                V::key('ics_options', V::keySet(
+                V::keyOptional('ics_options', V::keySet(
                     V::key('method', V::in(['request', 'publish', 'reply', 'add', 'cancel', 'refresh'])),
                     V::key('prodid', V::stringType()->notEmpty()),
                     V::key('ical_uid', V::stringType()->notEmpty()),
