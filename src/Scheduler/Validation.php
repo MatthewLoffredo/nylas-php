@@ -27,7 +27,7 @@ class Validation
   {
     return V::keySet(
       V::keyOptional('access_tokens', V::simpleArray(V::stringType()->notEmpty())),
-      V::keyOptional('config', self::getConfigRules()),
+      V::keyOptional('config', V::alwaysValid()),
       V::keyOptional('name', V::stringType()->notEmpty()),
       V::keyOptional('slug', V::stringType()->notEmpty()),
     );
